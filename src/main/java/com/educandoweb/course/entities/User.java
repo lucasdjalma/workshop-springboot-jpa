@@ -2,9 +2,19 @@ package com.educandoweb.course.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO) // ✅ Garante auto incremento no H2
 	private Long id;
 	private String name;
 	private String email;
@@ -91,5 +101,4 @@ public class User implements Serializable {
 		}
 		return true;
 	}
-
 }
